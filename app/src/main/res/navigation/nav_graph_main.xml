@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/nav_users_fragment"
+    android:id="@+id/nav_graph_main">
+
+    <fragment
+        android:id="@+id/nav_users_fragment"
+        android:name="com.metinvandar.usersandposts.presentation.users.UsersFragment"
+        android:label="@string/label_users_fragment"
+        tools:layout="@layout/fragment_users">
+
+        <action
+            android:id="@+id/action_users_to_users_posts"
+            app:destination="@id/nav_fragment_user_posts"
+            app:enterAnim="@anim/enter_from_right"
+            app:exitAnim="@anim/exit_from_left"
+            app:popEnterAnim="@anim/enter_from_left"
+            app:popExitAnim="@anim/exit_from_right">
+
+            <argument
+                android:name="user"
+                app:argType="com.metinvandar.usersandposts.domain.model.User" />
+
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_fragment_user_posts"
+        android:name="com.metinvandar.usersandposts.presentation.userposts.UserPostsFragment"
+        android:label="@string/label_user_posts_fragment"
+        tools:layout="@layout/fragment_user_posts">
+
+    </fragment>
+
+</navigation>
