@@ -1,5 +1,6 @@
 package com.metinvandar.usersandposts.presentation.users
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -20,7 +21,7 @@ class UsersViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val _userUIState = MutableLiveData<UsersUIState>(UsersUIState.Initial)
-    val userUIState get() = _userUIState
+    val userUIState: LiveData<UsersUIState> get() = _userUIState
 
     init {
         getUsersAndPost()
