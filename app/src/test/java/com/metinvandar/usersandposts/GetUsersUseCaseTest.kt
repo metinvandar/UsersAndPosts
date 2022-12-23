@@ -53,6 +53,9 @@ class GetUsersUseCaseTest {
         getUsersUseCase.invoke().collect { resource ->
             assert(resource is Resource.Success)
             val users = (resource as Resource.Success).data
+            users.forEachIndexed { index, user ->
+                assert(user.id == userResponse[index].userId)
+            }
             assert(users.size == userResponse.size)
 
             val resultPosts = postsResponse.filter { it.userId == userIdToTest }
